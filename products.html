@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinSense</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <nav id="menu">
+                <ul>
+                    <li><a href="index.php" style="text-decoration: none; color: black;">Home</a></li>
+                    <li><a href="info.html" style="text-decoration: none; color: black;">Info</a></li>
+                    <li><a href="products.html" style="text-decoration: none; color: black;">Products</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <h2>The products we work with:</h2>
+            <p>Taking care of your skin is important for many reasons...</p>
+        </main>
+    </div>
+    <div class="whole_info">
+        <div class="skin-type-selector">
+            <label for="skinType">Selecciona tu tipo de piel:</label>
+            <select id="skinType" name="skinType" onchange="mostrarProductos()">
+                <option value="nada">...</option>
+                <option value="grasa">Oily</option>
+                <option value="media">Mixed</option>
+                <option value="seca">Dry</option>
+            </select>
+        </div>
+        <div class="products" id="productsContainer"></div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function obtenerTipoPiel() {
+            const skinTypeSelect = document.getElementById('skinType');
+            return skinTypeSelect.value;
+        }
+
+        function mostrarProductos() {
+            const skinType = obtenerTipoPiel(); // Obtener el tipo de piel seleccionado
+            const productsContainer = document.getElementById('productsContainer');
+            productsContainer.innerHTML = ''; // Limpiar contenido
+
+            // Definir productos según el tipo de piel
+            const productosPorTipoPiel = {
+                grasa: [
+                    { nombre: 'Beauty Of Joseon - Barra Solar Mate', 
+                      descripcion: 'Suitable for sensitive skin, especially oily types. Enriched with Vitamins A and C, plus essential minerals for nourishment. Calms, hydrates, and softens with soothing artemisia and green tea extracts.',
+                      imagen: 'PhotosIOT/01-S-6ABOVE-OILY.png' },
+                    { nombre: 'Bioré UV Aqua Rich SPF 50 Moisturizing Sunscreen',
+                      descripcion: 'This gel-textured sunscreen with avobenzone, octisalate, and octocrylene transforms into a hydrating, water-like consistency. It absorbs quickly, leaving skin soft and moisturized.', 
+                      imagen: 'PhotosIOT/06-S-6BELOW-OILY.png' },
+                    { nombre: 'Beauty of Joseon - Gel de Agua Red Bean',
+                      descripcion: 'Lightweight gel hydrates, balances sebum, reduces wrinkles with Peptide Complex, and controls oil with 44% Red Bean extract for a fresh, youthful complexion.', 
+                      imagen: 'PhotosIOT/02-M-HOTHUMID-OILY.png' },
+                    { nombre: 'Tatcha The Water Creamn',
+                      descripcion: 'Oil-free cream with 3X hydration that refines pores, improves texture, and boosts radiance. Powered by Japanese wild rose, leopard lily, and Hadasei-3 for a healthy glow.', 
+                      imagen: 'PhotosIOT/03-M-HOTDRY-OILY.png' },
+                    { nombre: 'Cetaphil daily oil-free hydrating lotion',
+                      descripcion: 'Oil-free moisturizer with hyaluronic acid for 24-hour hydration, balancing and softening skin. Its lightweight formula absorbs quickly, preserving the moisture barrier without greasiness, and is gentle on sensitive skin.', 
+                      imagen: 'PhotosIOT/04-M-COLDHUMID-OILY.png' },
+                    { nombre: 'Neutrogena hydro boost water gel',
+                      descripcion: 'Boosts and locks in hydration, strengthens the skin barrier, and controls oil for up to 8 hours with a lightweight, fast-absorbing texture. Hypoallergenic, non-comedogenic, dermatologist-tested, ideal for cold and dry weather.', 
+                      imagen: 'PhotosIOT/05-M-COLDDRY-OILY.png' },
+                ],
+                media: [
+                    { nombre: 'ISDIN eryfotona ageless ultralight emulsion spf 50', 
+                      descripcion: 'Protects, repairs, and corrects skin with broad-spectrum sun protection from Non-Nano Zinc Oxide. Targets sun damage, supports collagen, and minimizes fine lines.',
+                      imagen: 'PhotosIOT/01-S-6ABOVE-MIXED.png' },
+                    { nombre: 'Le Prunier plumscreen spf 31',
+                      descripcion: 'Plumscreen SPF 30+ provides broad-spectrum protection with Non-Nano Zinc Oxide, hydration, and wrinkle prevention from Plum Superfruit Complex. Safe for all skin types, hypoallergenic, and free from harsh chemicals.', 
+                      imagen: 'PhotosIOT/06-S-6BELOW-MIXED.png' },
+                    { nombre: 'Centella Calming Gel Cream',
+                      descripcion: 'Soothes and hydrates, reducing redness and inflammation with 70% Centella Asiatica and 10% Tea Tree Water. Niacinamide and Adenosine brighten and even skin tone.', 
+                      imagen: 'PhotosIOT/02-M-HOTHUMID-MIXED.png' },
+                    { nombre: 'La Roche-Posay Effaclar Mat Anti-Shine Face Moisturizer',
+                      descripcion: 'Controls oil, reduces shine, and refines pores with a lightweight, fast-absorbing texture. Hydrates without greasiness, non-comedogenic, and ideal for oily, acne-prone skin.', 
+                      imagen: 'PhotosIOT/03-M-HOTDRY-MIXED.png' },
+                    { nombre: 'Belif The True Cream Aqua Bomb',
+                      descripcion: 'Absorbs quickly, offering intense hydration with hyaluronic acid and niacinamide. Soothes irritated skin, non-comedogenic, and ideal for combination skin.', 
+                      imagen: 'PhotosIOT/04-M-COLDHUMID-MIXED.png' },
+                    { nombre: 'First Aid Beauty Ultra Repair Cream',
+                      descripcion: 'Quickly absorbs to hydrate and repair dry, irritated skin. Soothes with shea butter, colloidal oil, and ceramide-3. Non-comedogenic, dermatologist-tested, ideal for aging skin or eczem.', 
+                      imagen: 'PhotosIOT/05-M-COLDDRY-MIXED.png' },
+                ],
+                seca: [
+                    { nombre: 'Eucerin Sun Advanced Hydration SPF 50 Sunscreen Lotion', 
+                      descripcion: 'Offers SPF 50 UVA/UVB protection with 5 antioxidants. Hydrates with hyaluronic acid and humectants, leaving a lightweight, non-sticky finish. Water-resistant for up to 80 minutes, hypoallergenic, non-comedogenic, and free from fragrance.',
+                      imagen: 'PhotosIOT/01-S-6ABOVE-DRY.png' },
+                    { nombre: 'CeraVe Hydrating Sheer Sunscreen SPF 30',
+                      descripcion: 'Protects against UVA/UVB rays with SPF 30, offering 80 minutes of water resistance. Lightweight, non-greasy formula with Zinc Oxide and 3 essential ceramides. Fragrance-free, non-comedogenic, and ideal for sensitive, acne-prone skin.', 
+                      imagen: 'PhotosIOT/06-S-6BELOW-DRY.png' },
+                    { nombre: 'DRUNK ELEPHANT b-hydra intensive hydration serum',
+                      descripcion: 'B-Hydra™ is an ultra-hydrating serum that improves skin texture and tone. With provitamin B5, pineapple ceramide, and a fruit complex, it provides continuous hydration, reduces dryness, and softens fine lines.', 
+                      imagen: 'PhotosIOT/02-M-HOTHUMID-DRY.png' },
+                    { nombre: 'Intense Hydration Day Lotion',
+                      descripcion: 'Absorbs quickly to provide intense hydration with Clary Sage and probiotic technology. Reduces fine lines and wrinkles while enhancing moisture retention. Dermatologist-tested, non-comedogenic, 99% natural and fast-absorbing.', 
+                      imagen: 'PhotosIOT/03-M-HOTDRY-DRY.png' },
+                    { nombre: 'Dr. Jart+ Ceramidin Cream',
+                      descripcion: 'Absorbs quickly to hydrate and strengthen the skin’s barrier with 5 ceramides and panthenol. Improves elasticity, retains moisture, and leaves skin soft and nourished.', 
+                      imagen: 'PhotosIOT/04-M-COLDHUMID-DRY.png' },
+                    { nombre: 'Kiehl’s Ultra Facial Cream:',
+                      descripcion: 'Provides 72-hour hydration with a lightweight, non-greasy texture. Formulated with squalane, glacial glycoprotein, and pro-ceramides to strengthen the moisture barrier. Absorbs quickly, leaving skin soft, smooth, and visibly healthier.', 
+                      imagen: 'PhotosIOT/05-M-COLDDRY-DRY.png' },
+                ]
+            };
+    
+            // Obtener productos correspondientes al tipo de piel
+            const productos = productosPorTipoPiel[skinType] || [];
+    
+            if (productos.length === 0) {
+                alert("Please select a type of skin ");
+                return;
+            }
+    
+            // Generar contenido HTML
+            productos.forEach(producto => {
+                const productHTML = `
+                    <div class="product-pair">
+                        <div class="product-image">
+                            <img src="${producto.imagen}" alt="${producto.nombre}">
+                        </div>
+                        <div class="product-info">
+                            <h2>${producto.nombre}</h2>
+                            <p>${producto.descripcion}</p>
+                        </div>
+                    </div>
+                `;
+                productsContainer.innerHTML += productHTML;
+            });
+        }
+    
+        // Llama a mostrarProductos al cargar la página
+        document.addEventListener("DOMContentLoaded", mostrarProductos);
+    </script>
+</body>
+</html>

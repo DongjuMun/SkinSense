@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinSense</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <nav id="menu">
+                <ul>
+                    <li><a href="index.php" style="text-decoration: none; color: black;">Home</a></li>
+                    <li><a href="info.html" style="text-decoration: none; color: black;">Info</a></li>
+                    <li><a href="products.html" style="text-decoration: none; color: black;">Products</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>Why is our product important?</h2>
+            <p>The advantages of this product are vital to be able to have a good skin care routine, this is due to the use of moisturizing creams which keep moisture in the skin which hydrates, reduces acne spots, calms the skin and reduces premature aging. On the contrary, sunscreen helps protect our skin from UV rays, prevents the development of wrinkles or folds in the skin, blemishes, among other things.</p>
+        </main>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+        <div class="whole_info">
+            <h2>Why is hydration important for skin health?</h2>
+            <p>Hydration is important for the skin because it helps with the skin 
+                elasticity which reduces the appearance of wrinkles and fine lines. 
+                Having a hydrated skin makes it less prone to sunburns and other forms 
+                of UV damage, it also helps control oil production and promotes a youthful complexion. 
+            </p>
+            <h2>What are the benefits of using a daily moisturizer?</h2>
+            <p>It helps maintain a youthful appearance by keeping your skin soft, 
+                supple, and well-hydrated. Regular use can reduce the appearance 
+                of wrinkles, giving your face a smoother and more radiant look. 
+                Additionally, it brightens your skin while reducing the flaky, 
+                dry effect that often leads to dullness. For those struggling with acne, 
+                the right products can help minimize breakouts and promote clearer skin, 
+                making it an essential part of any skincare routine.
+            </p>
+            <h2>What are the benefits of using a daily sunscreen?</h2>
+            <p>Sunscreen plays a crucial role in maintaining your skin's 
+                protective barrier by shielding it from harmful UV rays, 
+                preventing sunburns and irritation. 
+                It also reduces the risk of skin cancer by blocking UV exposure 
+                that can damage skin cells. Regular use of sunscreen helps 
+                protect against premature aging, including the development of 
+                wrinkles, brown spots, and irregular pigmentation, keeping your 
+                skin looking healthier and more youthful over time.
+            </p>
+            <h2>What is SPF in sunscreen?</h2>
+            <p>
+                The sun protection factor better known as (SPF) is how well 
+                sunscreen protects against UV rays. In other words while the 
+                SPF value increases sunburn protection increases.
+            </p>
+            <h3 style="font-weight: bold; margin: 3% 0">Meaning of PA <br></h3>
+            <p>
+                <b>PA+</b> has the ability to block UVA rays at 40-50% <br> <br>
+                <b>PA++</b> is better at blocking UVA rays, at 60-70% and the filter time is about 4-6 hours. <br> <br>
+                <b>PA+++</b> Good UVA protection, up to 90%, filter time about 8-12h <br> <br>
+                <b>PA++++</b> Very good UVA protection, up to over 95%. Filter time up to 16h. <br> <br>
+            </p>
+            <h3 style="font-weight: bold; margin: 3% 0">Moisturizer<br></h3>
+            <p style="margin-bottom: 3%">
+                Humectants, when used without an occlusive agent, will only increase 
+                water loss from the injured skin surface in a low humidity environment. 
+                This is because occlusive agents help to slow down the loss of moisture from the skin.
+                Antioxidants, such as vitamins C (ascorbic acid) and E (α -tocopherol) are 
+                effective for protecting the skin from oxidative stress from the environment, 
+                such as UV rays and emissions. Meaning moisturizer can have 2 types of classifications. 
+                Ones that are designed for dry, cold environments with thicker, occlusive creams . 
+                On the other hand hot, humid environments with gel-based or oil-free.
+                <br> <br>
+                In our case we will be separating moisturizer the following way:
+                <br> <br>
+                <b>Low Humidity</b> : Lower than 55% <br>
+                <b>High Humidity</b> : Equal or higher than 55% <br>
+                <b>Low Temperature</b> : Lower than 25°C <br>
+                <b>High Temperature</b> : Equal or higher than 25°C <br> 
+
+
+            </p>
+
+        </div>
+</body>
+</html>
